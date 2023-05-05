@@ -1,0 +1,5 @@
+opencv-python
+pillow
+boto3
+tensorflow
+mysql-connector-python

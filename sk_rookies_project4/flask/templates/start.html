@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.ycy</title>
+    <style>
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        * {
+            margin: 0;
+            padding:0;
+        }
+        header{           
+            background-color:black;
+            height: 100px;
+            background-size: 100% 100%;
+        }
+
+        #ycy{
+            font-size: 3em;
+            font-family: serif;
+            color:white;
+            
+            
+        }
+
+        #ycy a:hover
+        {
+        color: white;
+        transform: white;
+        }
+
+        #ycy a:visited
+        {
+        color: white;
+        transform: white;
+        }
+        
+        
+        main{       
+            height: 1000px;
+        }
+        /* #menu{
+            position: absolute;
+            right: 40px;
+            top:20px;    
+            color:white; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            height: 100px;      
+        } */
+    
+        #menuToggle
+        {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        
+        z-index: 1;
+        
+        -webkit-user-select: none;
+        user-select: none;
+        }
+
+        #menuToggle a
+        {
+        text-decoration: none;
+        color: #232323;
+        
+        transition: color 0.3s ease;
+        }
+
+        #menuToggle a:hover
+        {
+        color: tomato;
+        }
+
+
+        #menuToggle input
+        {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        
+        cursor: pointer;
+        
+        opacity: 0; /* hide this */
+        z-index: 2; /* and place it over the hamburger */
+        
+        -webkit-touch-callout: none;
+        }
+
+        /*
+        * Just a quick hamburger
+        */
+        #menuToggle span
+        {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        
+        background: #cdcdcd;
+        border-radius: 3px;
+        
+        z-index: 1;
+        
+        transform-origin: 4px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+        }
+
+        #menuToggle span:first-child
+        {
+        transform-origin: 0% 0%;
+        }
+
+        #menuToggle span:nth-last-child(2)
+        {
+        transform-origin: 0% 100%;
+        }
+
+        /* 
+        * Transform all the slices of hamburger
+        * into a crossmark.
+        */
+        #menuToggle input:checked ~ span
+        {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+        }
+
+        /*
+        * But let's hide the middle one.
+        */
+        #menuToggle input:checked ~ span:nth-last-child(3)
+        {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        /*
+        * Ohyeah and the last one should go the other direction
+        */
+        #menuToggle input:checked ~ span:nth-last-child(2)
+        {
+        transform: rotate(-45deg) translate(0, -1px);
+        }
+
+        /*
+        * Make this absolute positioned
+        * at the top left of the screen
+        */
+        #menu
+        {
+        position: absolute;
+        width: 600px;
+        margin: -150px 0 0 -150px;
+        padding: 50px;
+        padding-top: 125px;
+        
+        background: #ededed;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
+
+        #menu li
+        {
+        padding: 10px 0;
+        font-size: 22px;
+        }
+
+        /*
+        * And let's slide it in from the left
+        */
+        #menuToggle input:checked ~ ul
+        {
+        transform: none;
+        }
+        #image_frame{
+            margin:0;
+            padding:0;
+            height: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        #image{
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            filter: brightness(30%);
+        }
+        .frame{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            
+        }
+        li{ list-style: none; } /* 기호나 번호를 제거 */
+        a{ text-decoration: none; } /* 링크텍스트에 밑줄없앰 */
+        button{ cursor: pointer; } /* 모든 버튼에 마우스손모양 처리 */
+        
+        .loginbox::before{
+            background: url(/static/images/22.jpg);
+            height: 750px;
+            background-color: blue;
+            background-repeat: no-repeat;
+            filter: brightness(50%);
+            background-size: 100% 100%;
+            opacity: 0.5;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            height: 750px;
+            position: relative;
+
+        }
+
+        .loginbox{
+            width: 850px; height: 600px;
+            margin: 0 auto; /* 블록요소를 부모영역에서 가운데 처리 */
+            position: absolute;
+            left:25%;
+            right:25%;
+            
+        }
+        .loginbox h2{
+            width: 100%; /* 부모영역을 상속 */
+
+            /* 한줄텍스트인 경우만 height와 line-height가 같으면 세로 가운데 처리 */
+            height: 100px; line-height: 100px;
+            text-align: center; font-size: 30px;
+            font-weight: normal;
+            color:white;
+            font-family: serif;
+        }
+        .loginbox form{
+            width: 100%; height: 730px;
+            background-color: #fff;
+            /* 패딩수치를 인사이드 처리 */
+            padding: 60px; box-sizing: border-box;
+        }
+        .loginbox fieldset{
+            border: none; /* 테두리 제거 */ 
+        }
+        .loginbox legend{
+            /* 요소를 화면 밖으로 처리 */
+            position: absolute; left: -999em;
+
+            /* 웹접근성으로 스크린리더기가 읽어줘야 하므로 display: none;을 사용하지 말것 */
+        }
+        .loginbox label{
+            display: block;
+            font-size: 12px; color: #333;
+            margin-bottom: 10px; /* 동위선택자와의 간격 조정 */
+        }
+        .loginbox input{
+            display: block;
+            width: 100%; height: 50px;
+            margin-bottom: 25px; /* 동위선택자와의 간격 조정 */
+            border: none; background-color: #ededed;
+            padding: 0 20px; /* 앞상하 뒷좌우 */
+            box-sizing: border-box; /* 패딩수치를 인사이드 처리 */
+        }
+
+        .loginbox ul{
+            width: 100%;
+            text-align: right; /* 글자를 오른쪽으로 처리 */
+            margin-bottom: 60px;
+        }
+        .loginbox li{
+            display: inline-block;
+            height: 12px; line-height: 12px;
+        }
+        .loginbox li:last-child{
+            border-left: 1px solid #333;
+            padding-left: 10px; /* 테두리 안쪽 여백 */
+            margin-left: 4px; /* 테두리 바깥쪽 여백 */
+        }
+        .loginbox a{
+            /* 글자관련은 보통 최종태그에 줘야 적용 */
+            color: #333; font-size: 12px;
+
+            /* 현재 위치에서 상대적 이동 */
+            position: relative; top: -2px;
+        }
+        .loginbox button{
+            display: block;
+            width: 220px; height: 50px;
+            margin: 0 auto; /* 블록요소가 부모 영역에서 가운데 오기 */
+            border: none;
+            background-color: #1673ea;
+            color: #fff; font-size: 14px; font-weight: bold;
+        }
+
+
+        
+        .inside {
+            position: absolute;
+            width: 800px;
+            height: 200px;
+            top: 55%;
+            left: 50%;
+            transform: translate( -50%, -50% );
+            color: white;
+            font-family: serif;
+            
+            text-align: center;
+         }
+
+         .inside h1{
+            align-items: center;
+            justify-content : center;
+            display : flex;
+            font-size:300%;
+         }
+         .inside p{
+            margin-top: 50px;
+            font-family:verdana;
+            align-items: center;
+            justify-content : center;
+            
+         }
+         .inside button{
+            margin-top: 50px;
+            background: black;
+            color:white;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding:10px 30px;
+            font-size: 14px;
+            transition: .5s ease; 
+         }
+
+            #root {
+            background: white;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            right: 25%;
+            top:25%;
+            bottom: 25%;
+            max-width: 800px;
+            position:absolute; 
+            align-items:center;
+           
+            }
+
+
+        /* .one {
+            border:2px solid blue; 
+            width: 80%; 
+            height: 45%; 
+            left: 10%; 
+            right: 10%;
+            top: 30px; 
+            position:absolute;
+            margin: 0 auto;
+            display:flex;
+            justify-content: center;
+            align-content: center;
+            
+        }
+        .two {
+            border:2px solid blue; 
+            width: 80%; 
+            height: 45%; 
+            left: 10%; 
+            right: 10%;
+            bottom: 30px;
+            position:absolute;
+            margin: 0 auto;
+            display:flex;
+        }
+
+
+        .inone {
+            border: 2px solid gold; 
+            width: 30%;
+            height: 80%;
+            margin: 10px;
+            top: 10%;
+            bottom: 10
+            justify-content: center;
+            
+            
+        } */
+        
+
+        #fileInput {
+            bottom: 10px;
+            position:absolute;
+            font-size: 19px;
+           
+            
+        }
+
+        #checkk {
+            position: absolute;
+            bottom: 20px;
+            font-size: 19px;
+        }
+
+        #imageContainer {
+            border:2px solid blue; 
+            width: 90%; 
+            height: 900px; 
+            left: 10px; 
+            right: 10px;
+            flex-wrap: wrap;
+            top:40px; 
+            position:absolute;
+            margin: 0 auto;
+            display:flex;
+            justify-content: center;
+            align-content: center;  
+            display: grid; /* 그리드 컨테이너로 지정 */
+            grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성 */
+            grid-gap: 10px; /* 이미지 간격을 10px로 조정 */   
+            
+        }
+
+        img {
+            width: 100%; /* 이미지 너비를 200px로 조정 */
+            height: 700px;
+            border: 2px solid rgb(244, 33, 219); 
+            
+            text-align: center;
+            justify-content: center;
+        }
+       
+        footer{
+            height: 80px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-family: serif;
+            
+        }
+
+        #optionn{
+           
+    
+            position: absolute; 
+            top: 10px; 
+            left: 15px;
+            font-size:20px;
+           
+        }
+     
+
+    
+        </style>
+</head>
+<body>
+    <div> 이거 뭔데
+    <p>File Names: {{ names }}</p>
+{% if names %}
+	<p>File Names: {{ names }}</p>
+{% else %}
+	<p>No file names available.</p>
+{% endif %}
+    </div>
+<header>
+    <div style="height: 100%; position: relative; ">
+        <div style="width: 150px; height: 50px;top: 25px; left: 20px; position:absolute; vertical-align:middle;">
+            <a href="/main/" id="ycy"> T.ycy </a>
+        </div>
+    
+        <div>
+            <nav role="navigation">
+                <div id="menuToggle">
+        
+                <input type="checkbox" />
+                
+                <span></span>
+                <span></span>
+                <span></span>
+                
+        
+                <ul id="menu">
+        
+                    <a href="/main/login"><li>Login</li></a>
+                    
+                    <a href="/main/signup"><li>Signup</li></a>
+                    <a href="/main/start"><li>Start</li></a>
+                    <a href="/main/prior"><li>Prior Data</li></a>
+                </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- <ul id="menu">
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./index.html">About us</a></li>
+            <li><a href="./signup.html">Sign up</a></li>
+        </ul> -->
+</div>
+</header>
+<main>
+    <div style="width: 100%;height:100%; position: relative; ">
+        <!-- <div class="image"></div> -->
+
+
+       
+        
+        <div class="frame">
+            <div id="image_frame">
+                <img id="image" src="/static/images/22.jpg">
+                <form id="optionn" action="/db/image_selector" method="POST">
+                    <select id="year" name="year">Year</select>
+                    <select id="month" name="month">Month</select>
+                    <select id="day" name="day">Day</select>
+                    <button type="submit" id="confirm-btn" type="button">확인</button>
+                </form>
+            </div>
+            <button id="checkk" onclick="showImages()">버튼입니다</button>
+            <div id="imageContainer">
+<!-- 
+                <div class="inone"></div>
+                <div class="inone" >두번째</div>
+                <div class="inone" >세번쨰</div>
+                <div class="inone">네번쨰</div>
+    
+                <div class="inone">다섯번쨰</div>
+                <div class="inone">여섯번쨰</div>
+                <div class="inone">일곱번쨰</div>
+                <div class="inone">여덟번쨰</div> -->
+
+            </div>
+             
+            
+                
+            
+
+            
+              
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div style="height: 100%; position: relative; ">
+        <div style="width: 1500px; height: 30px; top: 0px; left: 30px; position:absolute; align-items:center;">
+
+            <span style="font-size:16px; top:50%; position: relative;"> <b style="font-size:130%">Member</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yoon Yae Chan &nbsp;&nbsp;|&nbsp; &nbsp; 
+                Park Jin Ho &nbsp; &nbsp;|&nbsp; &nbsp; 
+                Lee Ji Won</span> 
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                
+            <span style="font-size:16px;  top:50%; position: relative;"> <b style="font-size:130%">Address</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    서울특별시 중구 필동로 1길30 학술관 297호</span>  <br><br>
+
+            <span class="as-globalfooter-mini-legal" style="font-size:15px;">
+                <div class="as-globalfooter-mini-legal-copyright">
+                    Copyright © 2023&nbsp;&nbsp; T.ycy Inc.  &nbsp;&nbsp;모든 권리 보유.
+                </div>     
+            </span>
+        </div>
+      
+    </div>
+    
+       
+</footer>
+<script>
+     function showImages() {
+        
+        var imageContainer = document.getElementById("imageContainer");
+        var button = document.querySelector("#checkk");
+        
+        const namesStr = "{{ names }}";
+        const namesArr = namesStr.split(",");
+        
+        namesArr.forEach(function(file_name) {
+          file_name = file_name.replace('&#39;','').replace('[','').replace(']','').replace('&#39;','')
+          var img = document.createElement("img");
+          var url = 'https://s3-carscratch.s3.us-west-2.amazonaws.com/raw_image/'+file_name+'.jpg'
+          
+          img.src = url
+          img.style.width = "100%"; // 이미지 너비를 200px로 조정
+          img.style.height = "400px"; // 이미지 높이는 자동으로 조정
+          imageContainer.appendChild(img);
+        });
+
+        button.disabled = true;
+      }
+
+        // select 요소 선택
+const yearSelect = document.getElementById("year");
+const monthSelect = document.getElementById("month");
+const daySelect = document.getElementById("day");
+
+// 확인 버튼 요소 선택
+const confirmBtn = document.getElementById("confirm-btn");
+
+// 현재 연도, 월 구하기
+const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth() + 1;
+
+// 100년 전부터 현재 연도까지 옵션 생성
+for(let i = currentYear; i >= currentYear - 100; i--){
+  // 새로운 option 요소 생성
+  const option = document.createElement("option");
+
+  // option 요소에 값을 설정
+  option.value = i;
+  option.text = i;
+
+  // option 요소를 select 요소에 추가
+  yearSelect.add(option);
+}
+
+// 1월부터 12월까지 월 옵션 생성
+for(let i = 1; i <= 12; i++){
+  const option = document.createElement("option");
+  option.value = i;
+  option.text = i;
+  monthSelect.add(option);
+}
+
+// 현재 월의 마지막 날짜 구하기
+const getLastDate = function(year, month){
+  return new Date(year, month, 0).getDate();
+}
+const lastDate = getLastDate(currentYear, currentMonth);
+
+// 1일부터 해당 월의 마지막 날짜까지 일 옵션 생성
+for(let i = 1; i <= lastDate; i++){
+  const option = document.createElement("option");
+  option.value = i;
+  option.text = i;
+  daySelect.add(option);
+}
+
+// 확인 버튼 클릭 이벤트 리스너 등록
+confirmBtn.addEventListener("click", function(){
+  // 선택된 연도, 월, 일 정보 가져오기
+  const year = yearSelect.value;
+  const month = monthSelect.value;
+  const day = daySelect.value;
+
+  // 선택된 날짜 정보 출력
+  console.log(`선택된 날짜: ${year}년 ${month}월 ${day}일`);
+});
+  </script>
+</body>
+</html>

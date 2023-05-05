@@ -1,0 +1,52 @@
+version: '3'
+services:
+
+    flask:
+        build: 
+          context: flask
+          target: builder
+        stop_signal: SIGINT
+        ports:
+          - 8000:8000
+        restart: always
+        networks:
+          - my_frontend_net
+          - my_network
+        volumes:
+          - ~/.aws/:/root/.aws/:ro
+          
+    worker:
+        build:
+          context: sqs_detector
+          dockerfile: Dockerfile.worker
+        networks:
+          - my_network
+        volumes:
+          - ~/.aws/:/root/.aws/:ro
+                  
+    agent:
+        build: agent
+        restart: always
+        volumes:
+          - ~/.aws/:/root/.aws/:ro
+        environment:
+          - AWS_PROFILE=default
+        networks:
+          - agent_backend_net
+
+    proxy:
+        build: proxy
+        restart: always
+        ports:
+          - 80:80
+        depends_on:
+          - flask
+        networks:
+          - my_frontend_net
+
+networks:
+    my_frontend_net:
+    agent_backend_net:
+    my_network:
+        driver: bridge
+

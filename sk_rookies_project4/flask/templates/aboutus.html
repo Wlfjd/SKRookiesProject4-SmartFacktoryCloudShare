@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.ycy</title>
+    <style>
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        * {
+            margin: 0;
+            padding:0;
+        }
+        header{           
+            background-color:black;
+            height: 100px;
+            background-size: 100% 100%;
+        }
+
+        #ycy{
+            font-size: 3em;
+            font-family: serif;
+            color:white;
+            text-decoration-line: none;
+            
+        }
+
+        #ycy a:hover
+        {
+        color: white;
+        text-decoration-line: none;
+        }
+
+        #ycy a:visited
+        {
+        color: white;
+        text-decoration-line: none;
+        }
+        
+        
+        main{       
+            height: 1000px;
+        }
+        /* #menu{
+            position: absolute;
+            right: 40px;
+            top:20px;    
+            color:white; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            height: 100px;      
+        } */
+    
+        #menuToggle
+        {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        
+        z-index: 1;
+        
+        -webkit-user-select: none;
+        user-select: none;
+        }
+
+        #menuToggle a
+        {
+        text-decoration: none;
+        color: #232323;
+        
+        transition: color 0.3s ease;
+        }
+
+        #menuToggle a:hover
+        {
+        color: tomato;
+        }
+
+
+        #menuToggle input
+        {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        
+        cursor: pointer;
+        
+        opacity: 0; /* hide this */
+        z-index: 2; /* and place it over the hamburger */
+        
+        -webkit-touch-callout: none;
+        }
+
+        /*
+        * Just a quick hamburger
+        */
+        #menuToggle span
+        {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        
+        background: #cdcdcd;
+        border-radius: 3px;
+        
+        z-index: 1;
+        
+        transform-origin: 4px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+        }
+
+        #menuToggle span:first-child
+        {
+        transform-origin: 0% 0%;
+        }
+
+        #menuToggle span:nth-last-child(2)
+        {
+        transform-origin: 0% 100%;
+        }
+
+        /* 
+        * Transform all the slices of hamburger
+        * into a crossmark.
+        */
+        #menuToggle input:checked ~ span
+        {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+        }
+
+        /*
+        * But let's hide the middle one.
+        */
+        #menuToggle input:checked ~ span:nth-last-child(3)
+        {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        /*
+        * Ohyeah and the last one should go the other direction
+        */
+        #menuToggle input:checked ~ span:nth-last-child(2)
+        {
+        transform: rotate(-45deg) translate(0, -1px);
+        }
+
+        /*
+        * Make this absolute positioned
+        * at the top left of the screen
+        */
+        #menu
+        {
+        position: absolute;
+        width: 600px;
+        margin: -150px 0 0 -150px;
+        padding: 50px;
+        padding-top: 125px;
+        
+        background: #ededed;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
+
+        #menu li
+        {
+        padding: 10px 0;
+        font-size: 22px;
+        }
+
+        /*
+        * And let's slide it in from the left
+        */
+        #menuToggle input:checked ~ ul
+        {
+        transform: none;
+        }
+
+        #image{
+            margin:0;
+            padding:0;
+            height: 100%;
+            background-repeat: no-repeat;
+            filter: brightness(30%);
+            background-size: 100% 100%;
+            position: relative;
+            width: 100%;
+
+        }
+        .frame{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            
+        }
+        #ycyteam{
+            left:0px;
+            top: 50px;
+            position: absolute;
+            height: 320px;
+            width: 800px;
+          
+            background-color: rgba(35, 32, 32, 0.6);
+        }
+
+        
+        #vision{
+            right:0px;
+            top: 350px;
+            position: absolute;
+            height: 320px;
+            width: 800px;
+            background-color: rgba(35, 32, 32, 0.6);
+        }
+
+        #Sk{
+            left:0px;
+            top: 650px;
+            position: absolute;
+            height: 320px;
+            width: 800px;
+            background-color: rgba(35, 32, 32, 0.6);
+        }
+
+      
+
+        .inside  h2 {
+            justify-content: left;
+            display : flex;
+            font-size:300%;
+            color: rgb(255, 248, 222);
+            font-family:'Times New Roman', Times, serif;
+            opacity: 1;
+            align-items: center;
+            height: 50%;
+            margin-left:8%;
+        }
+
+        .inside  h3 {
+            justify-content: left;
+            display : flex;
+            opacity: 1;
+            color: rgb(249, 246, 235);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: lighter;
+            margin-left:8%;
+        }
+
+        
+         
+
+         
+
+        footer{
+            height: 80px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-family: serif;
+            
+        }
+
+
+    
+        </style>
+</head>
+<body>
+<header>
+    <div style="height: 100%; position: relative; ">
+        <div style="width: 150px; height: 50px;top: 25px; left: 20px; position:absolute; vertical-align:middle;">
+            <a href="/" id="ycy"> T.ycy </a>
+        </div>
+    
+        <div>
+            <nav role="navigation">
+                <div id="menuToggle">
+        
+                <input type="checkbox" />
+                
+                <span></span>
+                <span></span>
+                <span></span>
+                
+        
+                <ul id="menu">
+                    <a href="/login"><li>Login</li></a>
+                    <a href="/signup"><li>Signup</li></a>
+                    <a href="/aboutus"><li>About us</li></a>
+                  </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- <ul id="menu">
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./index.html">About us</a></li>
+            <li><a href="./signup.html">Sign up</a></li>
+        </ul> -->
+</div>
+</header>
+<main>
+    <div style="width: 100%;height:100%;">
+        <!-- <div class="image"></div> -->
+        
+        <div class="frame">
+            <img id="image" src="/static/images/22.jpg">
+            <div class="inside">
+                <div id="ycyteam" >
+                    <h2>ycy team</h2><br>
+                    <h3>&emsp;&emsp;ycy team만의 새로운 혁신과 창조를 통해<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 최상의 모빌리티 제품을 만들어냅니다. </h3><br><br>   
+                </div>
+                <div id="vision" >
+                    <h2>vision AI</h2><br>
+                    <h3>&emsp;&emsp;최고의 품질을 위해 국내 최고의 vision AI기술을 갖춰었습니다. </h3><br><br>
+                </div>
+                <div id="Sk" >
+                    <h2>Sk shieldus Rookies</h2><br>
+                    <h3>&emsp;&emsp;기업 및 브랜드 철학의 시발점입니다.<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ycy team의 시작은 SK shieldus rookies에서 시작했습니다. </h3><br><br>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+     
+</main>
+<footer>
+    <div style="height: 100%; position: relative; ">
+        <div style="width: 1500px; height: 30px; top: 0px; left: 30px; position:absolute; align-items:center;">
+
+            <span style="font-size:16px; top:50%; position: relative;"> <b style="font-size:130%">Member</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yoon Yae Chan &nbsp;&nbsp;|&nbsp; &nbsp; 
+                Park Jin Ho &nbsp; &nbsp;|&nbsp; &nbsp; 
+                Lee Ji Won</span> 
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                
+            <span style="font-size:16px;  top:50%; position: relative;"> <b style="font-size:130%">Address</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    서울특별시 중구 필동로 1길30 학술관 297호</span>  <br><br>
+
+            <span class="as-globalfooter-mini-legal" style="font-size:15px;">
+                <div class="as-globalfooter-mini-legal-copyright">
+                    Copyright © 2023&nbsp;&nbsp; T.ycy Inc.  &nbsp;&nbsp;모든 권리 보유.
+                </div>     
+            </span>
+        </div>
+      
+    </div>
+
+       
+</footer>
+<script>
+  var menuItems = document.querySelectorAll("#menu a"); // 메뉴 아이템들을 선택
+
+function isLoggedIn() {
+  // 로그인 여부를 확인하는 코드를 작성하고 true 또는 false를 반환합니다.
+  // 예를 들어, 로그인 여부를 세션 정보로 확인하는 경우:
+  // return sessionStorage.getItem('isLoggedIn') === 'true';
+  return false; // 로그인되어 있지 않은 상태로 가정합니다.
+}
+
+function updateMenu(loggedIn) {
+  if (loggedIn) { // 로그인한 경우
+    menuItems[0].innerHTML = "Log out"; // 첫 번째 메뉴 아이템을 "Log out"으로 변경
+    menuItems[0].href = "/logout"; // 첫 번째 메뉴 아이템의 링크를 "/logout"으로 변경
+    menuItems[1].innerHTML = "Start"; // 두 번째 메뉴 아이템을 "Start"로 변경
+    menuItems[1].href = "/start"; // 두 번째 메뉴 아이템의 링크를 "/start"로 변경
+  } else { // 로그인하지 않은 경우
+    menuItems[0].innerHTML = "Login"; // 첫 번째 메뉴 아이템을 "Login"으로 변경
+    menuItems[0].href = "/login"; // 첫 번째 메뉴 아이템의 링크를 "/login"으로 변경
+    menuItems[1].innerHTML = "Signup"; // 두 번째 메뉴 아이템을 "Signup"로 변경
+    menuItems[1].href = "/signup"; // 두 번째 메뉴 아이템의 링크를 "/signup"으로 변경
+  }
+}
+
+// 예시: 로그인되어 있다고 가정
+updateMenu(true);
+</script>
+</script>
+
+</body>
+</html>

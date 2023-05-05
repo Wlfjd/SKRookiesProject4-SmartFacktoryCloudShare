@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>이미지 8개 띄우기</title>
+    <style>
+      #imageContainer {
+        border: 2px solid rgb(250, 1, 1); 
+        width: 85%; 
+        height: 900px;
+        display: flex; /* 플렉스 컨테이너로 지정 */
+        justify-content: center; /* 수평 가운데 정렬 */
+        flex-wrap: wrap; /* 이미지가 넘칠 경우 자동으로 다음 줄로 이동 */
+        display: grid; /* 그리드 컨테이너로 지정 */
+        grid-template-columns: repeat(4, 1fr); /* 4개의 열로 구성 */
+        grid-gap: 10px; /* 이미지 간격을 10px로 조정 */
+    }
+      img {
+        width: 200px; /* 이미지 너비를 200px로 조정 */
+        height: auto; /* 이미지 높이는 자동으로 조정 */
+        border: 2px solid rgb(244, 33, 219); 
+        width: 22%;
+        margin: 20px;
+        height: 400px;
+        text-align: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showImages()">이미지 보기</button>
+    <div id="imageContainer"></div>
+
+    <script>
+      function showImages() {
+        var imageContainer = document.getElementById("imageContainer");
+        var button = document.querySelector("button");
+        for (var i = 1; i <= 8; i++) {
+          var img = document.createElement("img");
+          img.src = "/static/images/imageee.jpg";
+          img.style.width = "100%"; // 이미지 너비를 200px로 조정
+          img.style.height = "auto"; // 이미지 높이는 자동으로 조정
+          imageContainer.appendChild(img);
+        }
+
+        button.disabled = true;
+      }
+    </script>
+  </body>
+</html>

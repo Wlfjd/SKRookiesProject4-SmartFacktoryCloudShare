@@ -1,0 +1,12 @@
+# /etc/nginx/sites-available/default 파일
+
+server {
+    listen 80;
+    server_name local.com;
+
+    location / {
+        proxy_pass http://flask:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}

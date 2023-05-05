@@ -1,0 +1,17 @@
+FROM python:3.7 AS builder
+RUN pip install --upgrade pip
+RUN apt-get update
+RUN apt-get -y install libgl1-mesa-glx
+
+
+ENV AWS_PROFILE default
+ENV AWS_DEFAULT_REGION us-west-2
+
+WORKDIR ./app
+COPY . app/
+
+RUN pip install -r ./app/requirements.txt
+
+WORKDIR ./app
+
+CMD ["python", "sqs_detector.py"]
