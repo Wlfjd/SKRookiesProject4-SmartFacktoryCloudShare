@@ -1,11 +1,13 @@
-# [ project4 ] SMART FACTORY
-
+# [ PROJECT4 ] SMART FACTORY
 - 실시간으로 컨베이어 벨트에 이미지를 받음
 - 예측 처리해 마스크 생성
 - Database 저장
 - 웹사이트에 표시
 
-## 소개
+## 1. 구성도
+![10](https://user-images.githubusercontent.com/125535111/236663416-a4f5d072-41ae-42fb-ae9b-76ff53ee2f64.png)
+
+## 2. 소개
 ![1](https://user-images.githubusercontent.com/125535111/236662465-121ec021-290b-4f15-ac6f-8090b470eea7.PNG)
 ![2](https://user-images.githubusercontent.com/125535111/236662467-13cdf825-a826-4ff3-9607-a7c8e0109de6.PNG)
 ![3](https://user-images.githubusercontent.com/125535111/236662469-ab7f0566-2fec-4aff-9b66-bc6701f68d65.PNG)
@@ -20,7 +22,7 @@
 ![12](https://user-images.githubusercontent.com/125535111/236662484-f49f7c62-0601-4795-8497-a203a99c0bc5.PNG)
 ![13](https://user-images.githubusercontent.com/125535111/236662485-ce44d222-26f2-4046-8988-f856e27a69c2.PNG)
 
-## 웹사이트
+## 3. 웹사이트
 ### 메인
 ![1](https://user-images.githubusercontent.com/125535111/236662149-54b263dd-5fa5-4410-a771-aeef061dd0c2.PNG)
 ### 로그인
