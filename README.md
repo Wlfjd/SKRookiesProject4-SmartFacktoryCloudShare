@@ -22,11 +22,21 @@
 ### Tec Stack
 ![project3_stack](https://github.com/yunyechan9893/sk_rookies_project3/assets/125535111/01611ff5-89cd-476c-afca-40df2918a53c)
 
-### 결과
-![제목을-입력해주세요_-001](https://github.com/yunyechan9893/sk_rookies_project3/assets/125535111/1cd62fe0-1926-49f0-9c82-bffc316ff881)
-
-## 1. 구성도
+### 1. 구성도
 ![10](https://user-images.githubusercontent.com/125535111/236663416-a4f5d072-41ae-42fb-ae9b-76ff53ee2f64.png)
+
+### 결과
+#### 메인
+![1](https://user-images.githubusercontent.com/125535111/236662149-54b263dd-5fa5-4410-a771-aeef061dd0c2.PNG)
+#### 로그인
+![2](https://user-images.githubusercontent.com/125535111/236662174-88c6e2e4-6665-4595-b449-63b59d91b7d1.PNG)
+#### 회원가입
+![4](https://user-images.githubusercontent.com/125535111/236662180-ccbeabb5-f5ae-4fdf-9557-cfc258b15b02.PNG)
+#### 소개
+![5](https://user-images.githubusercontent.com/125535111/236662181-d21184fa-2c6e-44fd-ba0e-3731454eea8e.PNG)
+#### 날짜별 불량 사진 보기
+![3](https://user-images.githubusercontent.com/125535111/236662177-c70bcd94-edc6-4298-ab4b-85bc1e34de65.jpg)
+
 
 ## 2. 소개
 ![1](https://user-images.githubusercontent.com/125535111/236662465-121ec021-290b-4f15-ac6f-8090b470eea7.PNG)
@@ -43,14 +53,3 @@
 ![12](https://user-images.githubusercontent.com/125535111/236662484-f49f7c62-0601-4795-8497-a203a99c0bc5.PNG)
 ![13](https://user-images.githubusercontent.com/125535111/236662485-ce44d222-26f2-4046-8988-f856e27a69c2.PNG)
 
-## 3. 웹사이트
-### 메인
-![1](https://user-images.githubusercontent.com/125535111/236662149-54b263dd-5fa5-4410-a771-aeef061dd0c2.PNG)
-### 로그인
-![2](https://user-images.githubusercontent.com/125535111/236662174-88c6e2e4-6665-4595-b449-63b59d91b7d1.PNG)
-### 회원가입
-![4](https://user-images.githubusercontent.com/125535111/236662180-ccbeabb5-f5ae-4fdf-9557-cfc258b15b02.PNG)
-### 소개
-![5](https://user-images.githubusercontent.com/125535111/236662181-d21184fa-2c6e-44fd-ba0e-3731454eea8e.PNG)
-### 날짜별 불량 사진 보기
-![3](https://user-images.githubusercontent.com/125535111/236662177-c70bcd94-edc6-4298-ab4b-85bc1e34de65.jpg)
